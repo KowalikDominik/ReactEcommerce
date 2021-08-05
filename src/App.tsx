@@ -6,19 +6,24 @@ import "./App.scss";
 import { Header } from "./components/Header/Header";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
-import { SignInOut } from "./pages/SignInOut/SignInOut";
-import { auth } from "./services/firebase.utils";
+import { SignInUp } from "./pages/SignInUp/SignInUp";
+import { auth, createUserProfileDocument } from "./services/firebase.utils";
 
 function App() {
   const [unsubscribe, setUnsubscribe] = useState(null);
-  const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
+  const [currentUser, setCurrentUser] = useState({} || null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userRef = await createUserProfileDocument(user);
+        userRef?.onSnapshot((snapShot) =>
+          setCurrentUser({ id: snapShot.id, ...snapShot.data() })
+        );
+      } else setCurrentUser(user);
     });
     return () => {};
-  });
+  }, []);
 
   return (
     <div>
@@ -26,7 +31,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
-        <Route path="/signin" component={SignInOut} />
+        <Route path="/signin" component={SignInUp} />
       </Switch>
     </div>
   );

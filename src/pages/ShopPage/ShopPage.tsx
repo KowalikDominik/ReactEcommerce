@@ -11,9 +11,7 @@ export const ShopPage: React.FC<Props> = () => {
   return (
     <div>
       {collections.map(({ id, ...otherCollectioProps }) => (
-        <div>
-          <CollectionPreview key={id} {...otherCollectioProps} />
-        </div>
+        <CollectionPreview key={id} {...otherCollectioProps} />
       ))}
     </div>
   );
