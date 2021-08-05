@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import firebase from "firebase";
 import "./Header.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { auth } from "../../services/firebase.utils";
 
-interface Props {}
+interface Props {
+  currentUser: firebase.User | null;
+}
 
-export const Header: React.FC<Props> = () => {
+export const Header: React.FC<Props> = ({ currentUser }) => {
   return (
     <div className="header">
       <div className="logo-container">
@@ -18,9 +22,15 @@ export const Header: React.FC<Props> = () => {
         <Link className="option" to="/shop">
           SHOP
         </Link>
-        <Link className="option" to="/signin">
-          SIGN IN
-        </Link>
+        {currentUser ? (
+          <div className="option" onClick={() => auth.signOut()}>
+            SIGN OUT
+          </div>
+        ) : (
+          <Link className="option" to="/signin">
+            SIGN IN
+          </Link>
+        )}
         <Link className="option" to="/contact">
           CONTACT
         </Link>

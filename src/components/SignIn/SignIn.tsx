@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { setOriginalNode } from "typescript";
+
 import { CustomButton } from "../CustomButton/CustomButton";
 import { FormInput } from "../FormInput/FormInput";
-
+import { auth, signInWithGoogle } from "../../services/firebase.utils";
 import "./SignIn.scss";
 
 interface Props {}
@@ -45,7 +45,12 @@ export const SignIn: React.FC<Props> = () => {
           label="Password"
           changeHandler={onChangeHandler}
         />
-        <CustomButton type="submit">sign in</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">sign in</CustomButton>
+          <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
+            sign with google
+          </CustomButton>
+        </div>
       </form>
     </div>
   );
