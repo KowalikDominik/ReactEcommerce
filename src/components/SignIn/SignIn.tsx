@@ -11,9 +11,13 @@ export const SignIn: React.FC<Props> = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmitHandler = (e: any) => {
+  const onSubmitHandler = async (e: any) => {
     e.preventDefault();
-    alert("clicked");
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
