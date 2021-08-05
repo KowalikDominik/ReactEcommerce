@@ -5,11 +5,13 @@ import "./Header.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { auth } from "../../services/firebase.utils";
 
+import { connect } from "react-redux";
+
 interface Props {
   currentUser: {} | null;
 }
 
-export const Header: React.FC<Props> = ({ currentUser }) => {
+const Header: React.FC<Props> = ({ currentUser }) => {
   return (
     <div className="header">
       <div className="logo-container">
@@ -37,3 +39,9 @@ export const Header: React.FC<Props> = ({ currentUser }) => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);

@@ -18,7 +18,7 @@ const SignIn: React.FC<Props> = ({ history }) => {
       await auth.signInWithEmailAndPassword(email, password);
       history.push("/");
     } catch (error) {
-      console.error(error.message);
+      alert(error.message);
     }
   };
 

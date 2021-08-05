@@ -43,12 +43,11 @@ export const SignUp: React.FC<Props> = () => {
         email,
         password
       );
-      console.log(user);
       if (user) {
         await createUserProfileDocument(user, { displayName });
       }
     } catch (error) {
-      console.error(error.message);
+      alert(error.message);
     }
   };
 
