@@ -4,7 +4,7 @@ import "./CustomButton.scss";
 
 interface Props {
   type: "button" | "submit" | "reset" | undefined;
-  onClick?: () => void;
+  onClick?: any;
   children?: React.ReactNode;
   isGoogleSignIn?: boolean;
   inverted?: boolean;

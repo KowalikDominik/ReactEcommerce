@@ -12,7 +12,6 @@ const cardReducer = (state = INITIAL_STATE, action) => {
         ...state,
         hidden: !state.hidden,
       };
-      break;
     case cardActionTypes.ADD_ITEM:
       return {
         ...state,
@@ -20,7 +19,6 @@ const cardReducer = (state = INITIAL_STATE, action) => {
       };
     default:
       return state;
-      break;
   }
 };
 

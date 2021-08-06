@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ICollectionItem } from "../../interfacses";
-import { CollectionItem } from "../CollectionItem/CollectionItem";
+import CollectionItem from "../CollectionItem/CollectionItem";
 import "./CollectionPreview.scss";
 
 interface Props {
