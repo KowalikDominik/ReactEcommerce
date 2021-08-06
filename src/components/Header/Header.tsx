@@ -7,7 +7,7 @@ import { auth } from "../../services/firebase.utils";
 
 import { connect } from "react-redux";
 import CardIcon from "../CardIcon/CardIcon";
-import { CardDropdown } from "../CardDropdown/CardDropdown";
+import CardDropdown from "../CardDropdown/CardDropdown";
 
 interface Props {
   currentUser: {} | null;

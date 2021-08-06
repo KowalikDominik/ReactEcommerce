@@ -1,3 +1,6 @@
+export interface ICardItem extends ICollectionItem {
+  quantity: number;
+}
 export interface ICollectionItem {
   id: number;
   name: string;
