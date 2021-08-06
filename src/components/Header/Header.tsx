@@ -7,6 +7,7 @@ import { auth } from "../../services/firebase.utils";
 
 import { connect } from "react-redux";
 import { CardIcon } from "../CardIcon/CardIcon";
+import { CardDropdown } from "../CardDropdown/CardDropdown";
 
 interface Props {
   currentUser: {} | null;
@@ -37,6 +38,7 @@ const Header: React.FC<Props> = ({ currentUser }) => {
           CONTACT
         </Link>
         <CardIcon />
+        <CardDropdown />
       </div>
     </div>
   );
