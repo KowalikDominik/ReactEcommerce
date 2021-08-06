@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import "./CollectionItem.scss";
 import { addItem } from "../../redux/cardReducer/cardActions";
 interface Props extends ICollectionItem {
-  addItem: (item: any) => void;
+  addItem: (item: ICollectionItem) => void;
 }
 
 const CollectionItem: React.FC<Props> = (props) => {
