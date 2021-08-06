@@ -10,8 +10,9 @@ import { auth, createUserProfileDocument } from "./services/firebase.utils";
 
 import { setCurrentUser } from "./redux/userReducer/userActions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-function App({ setCurrentUser }) {
+function App({ setCurrentUser, currentUser }) {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -22,7 +23,7 @@ function App({ setCurrentUser }) {
       } else setCurrentUser(user);
     });
     return () => {};
-  });
+  }, []);
 
   return (
     <div>
@@ -30,14 +31,21 @@ function App({ setCurrentUser }) {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
-        <Route path="/signin" component={SignInUp} />
+        <Route
+          path="/signin"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignInUp />)}
+        />
       </Switch>
     </div>
   );
 }
 
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -4,11 +4,10 @@ import { CustomButton } from "../CustomButton/CustomButton";
 import { FormInput } from "../FormInput/FormInput";
 import { auth, signInWithGoogle } from "../../services/firebase.utils";
 import "./SignIn.scss";
-import { RouteComponentProps, withRouter } from "react-router-dom";
 
-interface Props extends RouteComponentProps<any> {}
+interface Props {}
 
-const SignIn: React.FC<Props> = ({ history }) => {
+export const SignIn: React.FC<Props> = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +15,6 @@ const SignIn: React.FC<Props> = ({ history }) => {
     e.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      history.push("/");
     } catch (error) {
       alert(error.message);
     }
@@ -61,5 +59,3 @@ const SignIn: React.FC<Props> = ({ history }) => {
     </div>
   );
 };
-
-export default withRouter(SignIn);
