@@ -1,5 +1,4 @@
-import firebase from "firebase";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router";
 
 import "./App.scss";
@@ -13,20 +12,17 @@ import { setCurrentUser } from "./redux/userReducer/userActions";
 import { connect } from "react-redux";
 
 function App({ setCurrentUser }) {
-  const [unsubscribe, setUnsubscribe] = useState(null);
-  // const [currentUser, setCurrentUser] = useState({} || null);
-
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
-        userRef?.onSnapshot((snapShot) =>
-          setCurrentUser({ id: snapShot.id, ...snapShot.data() })
-        );
+        userRef?.onSnapshot((snapShot) => {
+          setCurrentUser({ id: snapShot.id, ...snapShot.data() });
+        });
       } else setCurrentUser(user);
     });
     return () => {};
-  }, []);
+  });
 
   return (
     <div>

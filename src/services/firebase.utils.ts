@@ -22,7 +22,7 @@ export const createUserProfileDocument = async (
 
   const userSnapshot = await userRef.get();
 
-  if (userSnapshot!) {
+  if (!userSnapshot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
@@ -32,7 +32,9 @@ export const createUserProfileDocument = async (
         createdAt,
         ...additionalData,
       });
-    } catch (error) {}
+    } catch (error) {
+      alert(error.message);
+    }
   }
   return userRef;
 };
