@@ -6,14 +6,15 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { auth } from "../../services/firebase.utils";
 
 import { connect } from "react-redux";
-import { CardIcon } from "../CardIcon/CardIcon";
+import CardIcon from "../CardIcon/CardIcon";
 import { CardDropdown } from "../CardDropdown/CardDropdown";
 
 interface Props {
   currentUser: {} | null;
+  hidden: boolean;
 }
 
-const Header: React.FC<Props> = ({ currentUser }) => {
+const Header: React.FC<Props> = ({ currentUser, hidden }) => {
   return (
     <div className="header">
       <div className="logo-container">
@@ -38,14 +39,15 @@ const Header: React.FC<Props> = ({ currentUser }) => {
           CONTACT
         </Link>
         <CardIcon />
-        <CardDropdown />
+        {!hidden && <CardDropdown />}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, card: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToProps)(Header);
