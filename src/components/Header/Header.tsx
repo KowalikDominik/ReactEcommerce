@@ -6,6 +6,7 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { auth } from "../../services/firebase.utils";
 
 import { connect } from "react-redux";
+import { CardIcon } from "../CardIcon/CardIcon";
 
 interface Props {
   currentUser: {} | null;
@@ -35,6 +36,7 @@ const Header: React.FC<Props> = ({ currentUser }) => {
         <Link className="option" to="/contact">
           CONTACT
         </Link>
+        <CardIcon />
       </div>
     </div>
   );
