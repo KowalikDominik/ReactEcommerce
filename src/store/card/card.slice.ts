@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { ICardItem, ICardState } from "../../interfaces";
 import { addItemToCard } from "./card.utils";
 
-const initialState = {
+const initialState: ICardState = {
   hidden: true,
   items: [],
 };

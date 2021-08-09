@@ -10,7 +10,7 @@ import "./CardDropdown.scss";
 interface Props {}
 
 const CardDropdown: React.FC<Props> = () => {
-  const items = useSelector((state: RootState) => state.card.items);
+  const items = useSelector(({ card: { items } }: RootState) => items);
 
   return (
     <div className="card-dropdown">

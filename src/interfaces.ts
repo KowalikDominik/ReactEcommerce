@@ -1,8 +1,5 @@
 import firebase from "firebase";
 
-export interface ICardItem extends ICollectionItem {
-  quantity: number;
-}
 export interface ICollectionItem {
   id: number;
   name: string;
@@ -22,4 +19,13 @@ export interface IUser extends firebase.User {
 }
 export interface IUserState {
   currentUser: IUser | null;
+}
+
+export interface ICardState {
+  hidden: boolean;
+  items: ICardItem[];
+}
+
+export interface ICardItem extends ICollectionItem {
+  quantity: number;
 }
