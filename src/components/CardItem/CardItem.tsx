@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICardItem } from "../../interfacses";
+import { ICardItem } from "../../interfaces";
 import "./CardItem.scss";
 
 interface Props extends ICardItem {}

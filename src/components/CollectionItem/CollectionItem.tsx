@@ -1,18 +1,19 @@
 import React from "react";
-import { ICollectionItem } from "../../interfacses";
+import { ICollectionItem } from "../../interfaces";
 import { CustomButton } from "../CustomButton/CustomButton";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./CollectionItem.scss";
-import { addItem } from "../../redux/cardReducer/cardActions";
-interface Props extends ICollectionItem {
-  addItem: (item: ICollectionItem) => void;
-}
+
+import { addItem } from "../../store/card/card.slice";
+
+interface Props extends ICollectionItem {}
 
 const CollectionItem: React.FC<Props> = (props) => {
-  const { addItem, ...item } = props;
-  const { imageUrl, name, price } = item;
+  const dispatch = useDispatch();
 
+  const item = props;
+  const { imageUrl, name, price } = item;
   return (
     <div className="collection-item">
       <div
@@ -23,15 +24,15 @@ const CollectionItem: React.FC<Props> = (props) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <CustomButton inverted type="button" onClick={() => addItem(item)}>
+      <CustomButton
+        inverted
+        type="button"
+        onClick={() => dispatch(addItem(item))}
+      >
         Add to card
       </CustomButton>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-});
-
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default CollectionItem;

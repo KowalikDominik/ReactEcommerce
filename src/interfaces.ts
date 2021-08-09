@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 export interface ICardItem extends ICollectionItem {
   quantity: number;
 }
@@ -13,4 +15,11 @@ export interface ICollection {
   title: string;
   routeName: string;
   items: ICollectionItem[];
+}
+
+export interface IUser extends firebase.User {
+  id: string;
+}
+export interface IUserState {
+  currentUser: IUser | null;
 }

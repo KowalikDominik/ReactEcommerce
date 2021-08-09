@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICollectionItem } from "../../interfacses";
+import { ICollectionItem } from "../../interfaces";
 import CollectionItem from "../CollectionItem/CollectionItem";
 import "./CollectionPreview.scss";
 

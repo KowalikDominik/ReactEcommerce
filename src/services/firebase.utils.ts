@@ -33,7 +33,7 @@ export const createUserProfileDocument = async (
         ...additionalData,
       });
     } catch (error) {
-      alert(error.message);
+      alert(error);
     }
   }
   return userRef;

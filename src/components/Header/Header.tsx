@@ -5,16 +5,21 @@ import "./Header.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { auth } from "../../services/firebase.utils";
 
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import CardIcon from "../CardIcon/CardIcon";
 import CardDropdown from "../CardDropdown/CardDropdown";
 
-interface Props {
-  currentUser: {} | null;
-  hidden: boolean;
-}
+import { RootState } from "../../store/store";
 
-const Header: React.FC<Props> = ({ currentUser, hidden }) => {
+interface Props {}
+
+const Header: React.FC<Props> = () => {
+  const [currentUser, hidden] = useSelector(
+    ({ user: { currentUser }, card: { hidden } }: RootState) => [
+      currentUser,
+      hidden,
+    ]
+  );
   return (
     <div className="header">
       <div className="logo-container">
@@ -45,9 +50,4 @@ const Header: React.FC<Props> = ({ currentUser, hidden }) => {
   );
 };
 
-const mapStateToProps = ({ user: { currentUser }, card: { hidden } }) => ({
-  currentUser,
-  hidden,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;

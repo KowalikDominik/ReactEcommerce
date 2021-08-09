@@ -1,16 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { CardItem } from "../CardItem/CardItem";
 import { CustomButton } from "../CustomButton/CustomButton";
+import { RootState } from "../../store/store";
 
 import "./CardDropdown.scss";
 
-interface Props {
-  items: [];
-}
+interface Props {}
 
-const CardDropdown: React.FC<Props> = ({ items }) => {
+const CardDropdown: React.FC<Props> = () => {
+  const items = useSelector((state: RootState) => state.card.items);
+
   return (
     <div className="card-dropdown">
       <div className="card-items">
@@ -23,8 +24,4 @@ const CardDropdown: React.FC<Props> = ({ items }) => {
   );
 };
 
-const mapStateToProps = ({ card: { items } }) => ({
-  items,
-});
-
-export default connect(mapStateToProps)(CardDropdown);
+export default CardDropdown;

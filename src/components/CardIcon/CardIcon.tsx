@@ -1,25 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { ReactComponent as ShoppingBasket } from "../../assets/shoppingBasket.svg";
-import { cardToggleHidden } from "../../redux/cardReducer/cardActions";
 import "./CardIcon.scss";
 
-interface Props {
-  cardToggleHidden: () => void;
-}
+import { cardToggleHidden } from "../../store/card/card.slice";
 
-const CardIcon: React.FC<Props> = ({ cardToggleHidden }) => {
+interface Props {}
+
+const CardIcon: React.FC<Props> = () => {
+  const dispatch = useDispatch();
+
   return (
-    <div className="card-icon" onClick={cardToggleHidden}>
+    <div className="card-icon" onClick={() => dispatch(cardToggleHidden())}>
       <ShoppingBasket className="shopping-icon" />
       <span className="item-count">0</span>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  cardToggleHidden: () => dispatch(cardToggleHidden()),
-});
-
-export default connect(null, mapDispatchToProps)(CardIcon);
+export default CardIcon;
