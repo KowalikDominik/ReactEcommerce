@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { RootState } from "../store";
 
-const cardSelector = (state) => state.card;
+const cardSelector = (state: RootState) => state.card;
 
 export const itemsSelector = createSelector(cardSelector, (card) => card.items);
 export const countSelector = createSelector(itemsSelector, (items) =>

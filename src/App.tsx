@@ -34,7 +34,7 @@ function App() {
     });
     return () => {};
   }, [dispatch]);
-  console.log("app render");
+
   return (
     <div>
       <Header />
