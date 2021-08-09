@@ -20,6 +20,7 @@ const Header: React.FC<Props> = () => {
       hidden,
     ]
   );
+  console.log(`#Header render: ${hidden}`);
   return (
     <div className="header">
       <div className="logo-container">

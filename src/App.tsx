@@ -23,14 +23,18 @@ function App() {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef?.onSnapshot((snapShot) => {
+          console.log("userref");
           const newData = { id: snapShot.id, ...snapShot.data() } as IUser;
           dispatch(setCurrentUser(newData));
         });
-      } else dispatch(setCurrentUser(user));
+      } else {
+        console.log("else");
+        dispatch(setCurrentUser(user));
+      }
     });
     return () => {};
   }, [dispatch]);
-
+  console.log("app render");
   return (
     <div>
       <Header />

@@ -10,6 +10,7 @@ export const CardItem: React.FC<Props> = ({
   name,
   price,
   quantity,
+  id,
 }) => {
   return (
     <div className="card-item">
