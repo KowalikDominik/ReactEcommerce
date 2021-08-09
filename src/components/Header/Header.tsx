@@ -9,26 +9,15 @@ import { useSelector } from "react-redux";
 import CardIcon from "../CardIcon/CardIcon";
 import CardDropdown from "../CardDropdown/CardDropdown";
 
-import { RootState } from "../../store/store";
-import { createSelector } from "reselect";
-import cardSlice from "../../store/card/card.slice";
+import { currentUserSelector } from "../../store/user/user.selectors";
+import { cardHiddenSelector } from "../../store/card/card.selectors";
 
 interface Props {}
 
-const userSelector = createSelector(
-  (state: RootState) => state.user,
-  (user) => user.currentUser
-);
-const hiddenSelector = createSelector(
-  (state: RootState) => state.card,
-  (card) => card.hidden
-);
-
 const Header: React.FC<Props> = () => {
-  const currentUser = useSelector(userSelector);
-  const hidden = useSelector(hiddenSelector);
+  const currentUser = useSelector(currentUserSelector);
+  const hidden = useSelector(cardHiddenSelector);
 
-  console.log(`#Header render: ${hidden}`);
   return (
     <div className="header">
       <div className="logo-container">

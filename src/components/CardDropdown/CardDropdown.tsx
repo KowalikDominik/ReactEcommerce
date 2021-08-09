@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 import { CardItem } from "../CardItem/CardItem";
 import { CustomButton } from "../CustomButton/CustomButton";
-import { RootState } from "../../store/store";
 import { itemsSelector } from "../../store/card/card.selectors";
 
 import "./CardDropdown.scss";
