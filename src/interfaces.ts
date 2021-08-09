@@ -29,3 +29,5 @@ export interface ICardState {
 export interface ICardItem extends ICollectionItem {
   quantity: number;
 }
+
+export type addItemType = Omit<ICardItem, "quantity">;
