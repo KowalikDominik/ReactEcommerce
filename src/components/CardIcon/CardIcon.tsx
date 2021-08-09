@@ -12,7 +12,7 @@ import { countSelector } from "../../store/card/card.selectors";
 interface Props {}
 
 const CardIcon: React.FC<Props> = () => {
-  //const itemCount = useSelector(countSelector);
+  const itemCount = useSelector(countSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("#card icon render");

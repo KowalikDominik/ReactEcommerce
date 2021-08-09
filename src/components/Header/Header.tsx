@@ -10,16 +10,24 @@ import CardIcon from "../CardIcon/CardIcon";
 import CardDropdown from "../CardDropdown/CardDropdown";
 
 import { RootState } from "../../store/store";
+import { createSelector } from "reselect";
+import cardSlice from "../../store/card/card.slice";
 
 interface Props {}
 
+const userSelector = createSelector(
+  (state: RootState) => state.user,
+  (user) => user.currentUser
+);
+const hiddenSelector = createSelector(
+  (state: RootState) => state.card,
+  (card) => card.hidden
+);
+
 const Header: React.FC<Props> = () => {
-  const [currentUser, hidden] = useSelector(
-    ({ user: { currentUser }, card: { hidden } }: RootState) => [
-      currentUser,
-      hidden,
-    ]
-  );
+  const currentUser = useSelector(userSelector);
+  const hidden = useSelector(hiddenSelector);
+
   console.log(`#Header render: ${hidden}`);
   return (
     <div className="header">

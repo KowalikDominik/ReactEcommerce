@@ -18,22 +18,22 @@ function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const userRef = await createUserProfileDocument(user);
-        userRef?.onSnapshot((snapShot) => {
-          console.log("userref");
-          const newData = { id: snapShot.id, ...snapShot.data() } as IUser;
-          dispatch(setCurrentUser(newData));
-        });
-      } else {
-        console.log("else");
-        dispatch(setCurrentUser(user));
-      }
-    });
-    return () => {};
-  }, [dispatch]);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged(async (user) => {
+  //     if (user) {
+  //       const userRef = await createUserProfileDocument(user);
+  //       userRef?.onSnapshot((snapShot) => {
+  //         console.log("userref");
+  //         const newData = { id: snapShot.id, ...snapShot.data() } as IUser;
+  //         dispatch(setCurrentUser(newData));
+  //       });
+  //     } else {
+  //       console.log("else");
+  //       dispatch(setCurrentUser(user));
+  //     }
+  //   });
+  //   return () => {};
+  // }, [dispatch]);
   console.log("app render");
   return (
     <div>
