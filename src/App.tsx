@@ -8,6 +8,8 @@ import Header from "./components/Header/Header";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { SignInUp } from "./pages/SignInUp/SignInUp";
+import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
+
 import { auth, createUserProfileDocument } from "./services/firebase.utils";
 
 import { RootState } from "./store/store";
@@ -41,6 +43,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+
         <Route
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInUp />)}

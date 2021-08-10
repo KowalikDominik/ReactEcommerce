@@ -1,0 +1,26 @@
+.checkout-item {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid grey;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  .image-container {
+    width: 22%;
+    padding-right: 15px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .name,
+  .quantity,
+  .price {
+    width: 22%;
+  }
+  .remove {
+    width: 11%;
+    display: flex;
+    justify-content: center;
+  }
+}
