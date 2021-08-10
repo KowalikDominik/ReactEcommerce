@@ -18,8 +18,11 @@ const slice = createSlice({
     addItem: (state, action: PayloadAction<addItemType>) => {
       state.items = addItemToCard(state.items, action.payload);
     },
+    removeItemFromCard: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
   },
 });
 
-export const { cardToggleHidden, addItem } = slice.actions;
+export const { cardToggleHidden, addItem, removeItemFromCard } = slice.actions;
 export default slice.reducer;

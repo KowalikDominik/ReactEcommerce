@@ -6,7 +6,7 @@
   text-align: center;
   width: 100%;
   .image-container {
-    width: 22%;
+    width: 23%;
     padding-right: 15px;
     img {
       height: 100%;
@@ -16,10 +16,11 @@
   .name,
   .quantity,
   .price {
-    width: 22%;
+    width: 23%;
   }
   .remove {
-    width: 11%;
+    cursor: pointer;
+    width: 123;
     display: flex;
     justify-content: center;
   }
