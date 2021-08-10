@@ -1,3 +1,4 @@
+$base-width: 23%;
 .checkout-item {
   display: flex;
   padding: 15px 0;
@@ -6,8 +7,10 @@
   text-align: center;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
+
   .image-container {
-    width: 23%;
+    width: $base-width;
     padding-right: 15px;
     img {
       height: 100%;
@@ -17,7 +20,7 @@
   .name,
   .quantity,
   .price {
-    width: 23%;
+    width: $base-width;
   }
   .quantity {
     display: flex;
@@ -29,7 +32,7 @@
   }
   .remove {
     cursor: pointer;
-    width: 123;
+    width: 15%;
     display: flex;
     justify-content: center;
   }
