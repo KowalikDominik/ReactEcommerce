@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { addItemType, ICardState } from "../../interfaces";
-import { addItemToCard } from "./card.utils";
+import { addItemType, ICardItem, ICardState } from "../../interfaces";
+import { itemsSelector } from "./card.selectors";
+import { addItemToCard, decreaseItemQuantity } from "./card.utils";
 
 const initialState: ICardState = {
   hidden: true,
@@ -21,8 +22,12 @@ const slice = createSlice({
     removeItemFromCard: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
+    decreaseItem: (state, action: PayloadAction<ICardItem>) => {
+      state.items = decreaseItemQuantity(state.items, action.payload);
+    },
   },
 });
 
-export const { cardToggleHidden, addItem, removeItemFromCard } = slice.actions;
+export const { cardToggleHidden, addItem, removeItemFromCard, decreaseItem } =
+  slice.actions;
 export default slice.reducer;

@@ -5,6 +5,7 @@
   font-size: 20px;
   text-align: center;
   width: 100%;
+  align-items: center;
   .image-container {
     width: 23%;
     padding-right: 15px;
@@ -17,6 +18,14 @@
   .quantity,
   .price {
     width: 23%;
+  }
+  .quantity {
+    display: flex;
+    justify-content: center;
+    .arrow {
+      cursor: pointer;
+      padding: 0 10px;
+    }
   }
   .remove {
     cursor: pointer;
