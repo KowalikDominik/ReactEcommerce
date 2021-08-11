@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { RootState } from "../store";
 
-export const direcrorySelector = createSelector(
+export const directorySelector = createSelector(
   (state: RootState) => state.directory,
   (direcory) => direcory.items
 );

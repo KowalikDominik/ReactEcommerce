@@ -5,11 +5,13 @@ import thunkMiddleware from "redux-thunk";
 import cardReducer from "./card/card.slice";
 import userReducer from "./user/user.slice";
 import directoryReducer from "./directory/directory.slice";
+import collectionReducer from "./collection/collection.slice";
 
 const reducers = {
   user: userReducer,
   card: cardReducer,
   directory: directoryReducer,
+  collection: collectionReducer,
 };
 
 const middlewares = [loggerMiddleware, thunkMiddleware];

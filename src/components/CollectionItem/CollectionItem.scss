@@ -18,6 +18,9 @@
     display: flex;
     justify-content: space-between;
     font-size: 18px;
+    .price {
+      white-space: nowrap;
+    }
   }
   &:hover {
     .image {

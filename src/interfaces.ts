@@ -6,7 +6,6 @@ export interface ICollectionItem {
   imageUrl: string;
   price: number;
 }
-
 export interface ICollection {
   id: number;
   title: string;

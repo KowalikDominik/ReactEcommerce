@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { direcrorySelector } from "../../store/directory/directory.selectors";
+import { directorySelector } from "../../store/directory/directory.selectors";
 
 import MenuItem from "../MenuItem/MenuItem";
 import "./Directory.scss";
@@ -8,7 +8,7 @@ import "./Directory.scss";
 interface Props {}
 
 export const Directory: React.FC<Props> = () => {
-  const menuItems = useSelector(direcrorySelector);
+  const menuItems = useSelector(directorySelector);
 
   return (
     <div className="directory-menu">

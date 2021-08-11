@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { CollectionPreview } from "../../components/CollectionPreview/CollectionPreview";
+import React from "react";
+import { Route, RouteComponentProps } from "react-router";
+import { CollectionOverview } from "../../components/CollectionOverview/CollectionOverview";
+import { CollectionPage } from "../CollectionPage/CollectionPage";
 
-import { SHOP_DATA } from "./ShopPage.data";
+interface Props extends RouteComponentProps<any> {
+  props: any;
+}
 
-interface Props {}
-
-export const ShopPage: React.FC<Props> = () => {
-  const [collections, setCollections] = useState(SHOP_DATA);
-
+export const ShopPage: React.FC<Props> = ({ match }) => {
   return (
     <div>
-      {collections.map(({ id, ...otherCollectioProps }) => (
-        <CollectionPreview key={id} {...otherCollectioProps} />
-      ))}
+      <Route exact path={`${match.path}`} component={CollectionOverview} />
+      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
     </div>
   );
 };
