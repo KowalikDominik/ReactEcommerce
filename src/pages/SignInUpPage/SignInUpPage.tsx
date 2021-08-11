@@ -2,11 +2,11 @@ import React from "react";
 import { SignIn } from "../../components/SignIn/SignIn";
 import { SignUp } from "../../components/SignUp/SignUp";
 
-import "./SignInUp.scss";
+import "./SignInUpPage.scss";
 
 interface Props {}
 
-export const SignInUp: React.FC<Props> = () => {
+export const SignInUpPage: React.FC<Props> = () => {
   return (
     <div className="sign-in-out">
       <SignIn />

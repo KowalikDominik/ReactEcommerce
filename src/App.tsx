@@ -7,17 +7,23 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { ShopPage } from "./pages/ShopPage/ShopPage";
-import { SignInUp } from "./pages/SignInUp/SignInUp";
+import { SignInUpPage } from "./pages/SignInUpPage/SignInUpPage";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
-import { auth, createUserProfileDocument } from "./services/firebase.utils";
+import {
+  auth,
+  addCollectionsAndDocument,
+  createUserProfileDocument,
+} from "./services/firebase.utils";
 
 import { RootState } from "./store/store";
 import { setCurrentUser } from "./store/user/user.slice";
 import { IUser } from "./interfaces";
+import { collectionsSelector } from "./store/collection/collection.selectors";
 
 function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const collections = useSelector(collectionsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,7 +53,7 @@ function App() {
 
         <Route
           path="/signin"
-          render={() => (currentUser ? <Redirect to="/" /> : <SignInUp />)}
+          render={() => (currentUser ? <Redirect to="/" /> : <SignInUpPage />)}
         />
       </Switch>
     </div>
