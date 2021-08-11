@@ -10,20 +10,14 @@ import { ShopPage } from "./pages/ShopPage/ShopPage";
 import { SignInUpPage } from "./pages/SignInUpPage/SignInUpPage";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
-import {
-  auth,
-  addCollectionsAndDocument,
-  createUserProfileDocument,
-} from "./services/firebase.utils";
+import { auth, createUserProfileDocument } from "./services/firebase.utils";
 
 import { RootState } from "./store/store";
 import { setCurrentUser } from "./store/user/user.slice";
 import { IUser } from "./interfaces";
-import { collectionsSelector } from "./store/collection/collection.selectors";
 
 function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
-  const collections = useSelector(collectionsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,12 +25,10 @@ function App() {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef?.onSnapshot((snapShot) => {
-          console.log("userref");
           const newData = { id: snapShot.id, ...snapShot.data() } as IUser;
           dispatch(setCurrentUser(newData));
         });
       } else {
-        console.log("else");
         dispatch(setCurrentUser(user));
       }
     });
