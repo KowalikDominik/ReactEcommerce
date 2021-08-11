@@ -31,3 +31,15 @@ export interface ICardItem extends ICollectionItem {
 }
 
 export type addItemType = Omit<ICardItem, "quantity">;
+
+interface IDirecoryItem {
+  title: string;
+  imageUrl: string;
+  id: number;
+  size: string;
+  linkUrl: string;
+}
+
+export interface IDirectoryState {
+  items: IDirecoryItem[];
+}
