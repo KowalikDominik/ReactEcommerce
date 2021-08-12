@@ -3,7 +3,7 @@ import { RootState } from "../store";
 
 export const collectionsSelector = createSelector(
   (state: RootState) => state.collection,
-  (collection) => collection.collections ? Object.keys(collection?.collections).map((name) => collection.collections ? collection.collections[name] : null) : []
+  (collection) => Object.keys(collection.collections).map((name) => collection.collections[name])
 
 );
 export const collectionsCategorySelector = (idName: string) =>
