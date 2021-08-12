@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "../Spinner/Spinner";
 
 import "./withSpinner.scss";
 
@@ -12,7 +13,9 @@ export const withSpinner =
     if (isLoading)
       return (
         <div className="spinner-backdrop">
-          <div className="spinner">Loading</div>
+          <div className="spinner">
+            <Spinner />
+          </div>
         </div>
       );
     else return <Component {...(props as P)} />;
