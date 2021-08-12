@@ -4,11 +4,10 @@ import { CollectionPreview } from "../CollectionPreview/CollectionPreview";
 
 import { collectionsSelector } from "../../store/collection/collection.selectors";
 import { useSelector } from "react-redux";
-import { withSpinner } from "../withSpinner/withSpinner";
 
 interface Props {}
 
-const CollectionOverview: React.FC<Props> = () => {
+export const CollectionOverview: React.FC<Props> = () => {
   const collections = useSelector(collectionsSelector);
   return (
     <div className="collection-overview">
@@ -18,5 +17,3 @@ const CollectionOverview: React.FC<Props> = () => {
     </div>
   );
 };
-
-export default withSpinner(CollectionOverview);
