@@ -1,20 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICollection } from "../../interfaces";
+import { CollectionItems, ICollectionState } from "../../interfaces";
 
-// import { initialState } from "./collection.initialState";
-
-interface Int {
-  [key: string]: string | number;
-}
-
-const initialState: Int = {};
+const initialState: ICollectionState = {
+  collections: {},
+};
 
 const slice = createSlice({
   name: "collection",
   initialState,
   reducers: {
-    updateCollections: (state, action: PayloadAction<any>) => {
-      state = action.payload;
+    updateCollections: (state, action: PayloadAction<CollectionItems>) => {
+      state.collections = action.payload;
     },
   },
 });

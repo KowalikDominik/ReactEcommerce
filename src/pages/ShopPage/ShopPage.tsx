@@ -24,7 +24,7 @@ export const ShopPage: React.FC<Props> = ({ match }) => {
     });
 
     return () => {};
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <Route exact path={`${match.path}`} component={CollectionOverview} />

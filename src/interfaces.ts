@@ -13,6 +13,14 @@ export interface ICollection {
   items: ICollectionItem[];
 }
 
+export type CollectionItems = {
+    [key: string]: ICollection;
+  };
+
+export interface ICollectionState {
+  collections: CollectionItems
+}
+
 export interface IUser extends firebase.User {
   id: string;
 }
