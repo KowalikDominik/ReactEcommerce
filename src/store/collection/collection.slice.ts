@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CollectionItems, ICollectionState } from "../../interfaces";
 
 const initialState: ICollectionState = {
-  collections: null,
+  collections: {},
 };
 
 const slice = createSlice({

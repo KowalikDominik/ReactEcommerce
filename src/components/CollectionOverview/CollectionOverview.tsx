@@ -11,12 +11,13 @@ interface Props {}
 
 export const  CollectionOverview: React.FC<Props> = () => {
   const collections = useSelector(collectionsSelector);
-
+  console.log()
   return (
     <div className="collection-overview">
-      {collections ? Object.keys(collections).map((name) => (
-        <CollectionPreview key={name} {...collections[name]} />
-      )) : null}
+      {collections.map((item) => {
+        const {id, ...other} = item;
+        return <CollectionPreview key={id} {...other} />
+      })}
     </div>
   );
 };
