@@ -9,14 +9,14 @@ import { title } from "process";
 
 interface Props {}
 
-export const CollectionOverview: React.FC<Props> = () => {
+export const  CollectionOverview: React.FC<Props> = () => {
   const collections = useSelector(collectionsSelector);
 
   return (
     <div className="collection-overview">
-      {Object.keys(collections).map((name) => (
+      {collections ? Object.keys(collections).map((name) => (
         <CollectionPreview key={name} {...collections[name]} />
-      ))}
+      )) : null}
     </div>
   );
 };

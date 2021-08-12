@@ -18,7 +18,7 @@ export type CollectionItems = {
   };
 
 export interface ICollectionState {
-  collections: CollectionItems
+  collections: CollectionItems | null
 }
 
 export interface IUser extends firebase.User {
