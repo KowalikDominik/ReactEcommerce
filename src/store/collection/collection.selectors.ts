@@ -1,15 +1,18 @@
 import { createSelector } from "reselect";
 import { RootState } from "../store";
 
-export const collectionsSelector = createSelector(
-  (state: RootState) => state.collection,
-  (collection) => Object.keys(collection.collections).map((name) => collection.collections[name])
+const collection = (state: RootState) => state.collection;
 
+const collectionsObjectsSelector = createSelector(
+  collection,
+  (collection) => collection.collections
+);
+
+export const collectionsSelector = createSelector(
+  collectionsObjectsSelector,
+  (collections) => Object.keys(collections).map((name) => collections[name])
 );
 export const collectionsCategorySelector = (idName: string) =>
-  createSelector(
-    (state: RootState) => state.collection,
-    (collection) => {
-      return collection[idName];
-    }
-  );
+  createSelector(collectionsObjectsSelector, (collections) => {
+    return collections ? collections[idName] : null;
+  });

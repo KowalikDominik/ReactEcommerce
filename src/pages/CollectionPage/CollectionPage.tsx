@@ -15,10 +15,9 @@ export const CollectionPage: React.FC<Props> = ({ match }) => {
   const collectionCategory = useSelector(
     collectionsCategorySelector(match.params.collectionId)
   );
-  console.log(collectionCategory);
+
   if (collectionCategory) {
     const { title, items } = collectionCategory;
-    console.log(collectionCategory);
     return (
       <div className="collection-page">
         <h1 className="title">{title}</h1>
