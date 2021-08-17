@@ -23,9 +23,10 @@ const CollectionOverviewWithSpinner = withSpinner(CollectionOverview);
 const CollectionPageWithSpinner = withSpinner(CollectionPage);
 
 export const ShopPage: React.FC<Props> = ({ match }) => {
-  const state = useSelector((state: RootState) => state.collection.status);
+  const status = useSelector((state: RootState) => state.collection.status);
   const error = useSelector((state: RootState) => state.collection.error);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCollections());
     return () => {};
@@ -36,14 +37,14 @@ export const ShopPage: React.FC<Props> = ({ match }) => {
         exact
         path={`${match.path}`}
         render={() => (
-          <CollectionOverviewWithSpinner isLoading={state !== "succeeded"} />
+          <CollectionOverviewWithSpinner isLoading={status !== "succeeded"} />
         )}
       />
       <Route
         path={`${match.path}/:collectionId`}
         render={(props) => (
           <CollectionPageWithSpinner
-            isLoading={state !== "succeeded"}
+            isLoading={status !== "succeeded"}
             {...props}
           />
         )}

@@ -14,7 +14,7 @@ const reducers = {
   collection: collectionReducer,
 };
 
-const middlewares = [loggerMiddleware, thunkMiddleware];
+const middlewares = [thunkMiddleware, loggerMiddleware];
 
 const store = configureStore({
   reducer: reducers,

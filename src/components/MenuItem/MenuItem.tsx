@@ -22,7 +22,7 @@ const MenuItem: React.FC<Props> = ({
   return (
     <div
       className={`${size} menu-item`}
-      onClick={() => history.push(`${match.url}${linkUrl}`)}
+      onClick={() => history.push(`/${linkUrl}`)}
     >
       <div
         style={{

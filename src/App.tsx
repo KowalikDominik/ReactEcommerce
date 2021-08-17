@@ -15,6 +15,7 @@ import { auth, createUserProfileDocument } from "./services/firebase.utils";
 import { RootState } from "./store/store";
 import { setCurrentUser } from "./store/user/user.slice";
 import { IUser } from "./interfaces";
+import { NotFound404 } from "./components/NotFound404/NotFound404";
 
 function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
@@ -47,6 +48,7 @@ function App() {
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInUpPage />)}
         />
+        <Route exact path="/404" component={NotFound404} />
       </Switch>
     </div>
   );
