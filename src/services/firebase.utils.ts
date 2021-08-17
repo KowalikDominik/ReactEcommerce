@@ -1,8 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import collectionSlice from "../store/collection/collection.slice";
-import { log } from "console";
+import { CollectionItems } from "../interfaces";
 
 var config = {
   apiKey: "AIzaSyBBhPtqc_BgIrH-3cViIQ0YM8bC6rMQSUQ",
@@ -52,7 +51,7 @@ export const addCollectionsAndDocument = async (collection, objectsToAdd) => {
   return await batch.commit();
 };
 
-export const convertCollectionToMap = (snapshot) => {
+export const convertCollectionToMap = (snapshot): CollectionItems => {
   const data = snapshot.docs.map((doc) => {
     const { title, items } = doc.data();
     return {

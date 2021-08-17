@@ -1,3 +1,4 @@
+import { SerializedError } from "@reduxjs/toolkit/dist/createAsyncThunk";
 import firebase from "firebase";
 
 export interface ICollectionItem {
@@ -14,11 +15,13 @@ export interface ICollection {
 }
 
 export type CollectionItems = {
-    [key: string]: ICollection;
-  };
+  [key: string]: ICollection;
+};
 
 export interface ICollectionState {
-  collections: CollectionItems
+  collections: CollectionItems;
+  status: string;
+  error: SerializedError;
 }
 
 export interface IUser extends firebase.User {
