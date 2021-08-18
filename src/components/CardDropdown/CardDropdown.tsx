@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CardItem } from "../CardItem/CardItem";
@@ -18,10 +18,34 @@ const CardDropdown: React.FC<Props> = ({ history }) => {
   const items = useSelector(itemsSelector);
   const hidden = useSelector(cardHiddenSelector);
   const dispatch = useDispatch();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    /**
+     * HideCard if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        document.querySelector(".card-icon") &&
+        !document.querySelector(".card-icon")?.contains(event.target)
+      ) {
+        dispatch(cardToggleHidden());
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dispatch, dropdownRef]);
 
   if (hidden) return null;
+
   return (
-    <div className="card-dropdown">
+    <div className="card-dropdown" ref={dropdownRef}>
       <div className="card-items">
         {items.length ? (
           items.map((item) => <CardItem {...item} key={item.id} />)
