@@ -7,6 +7,10 @@ const collectionsObjectsSelector = createSelector(
   collection,
   (collection) => collection.collections
 );
+export const collectionStatus = createSelector(
+  collection,
+  (collection) => collection.status
+);
 
 export const collectionsSelector = createSelector(
   collectionsObjectsSelector,

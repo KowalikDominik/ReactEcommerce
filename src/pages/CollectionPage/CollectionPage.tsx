@@ -1,21 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { RouteComponentProps } from "react-router";
 import { Redirect } from "react-router-dom";
 import CollectionItem from "../../components/CollectionItem/CollectionItem";
 import { collectionsCategorySelector } from "../../store/collection/collection.selectors";
-import { HomePage } from "../HomePage/HomePage";
 
 import "./CollectionPage.scss";
 
-type MatchParams = {
+interface Props {
   collectionId: string;
-};
-interface Props extends RouteComponentProps<MatchParams> {}
+}
 
-export const CollectionPage: React.FC<Props> = ({ match, history }) => {
+export const CollectionPage: React.FC<Props> = ({ collectionId }) => {
   const collectionCategory = useSelector(
-    collectionsCategorySelector(match.params.collectionId)
+    collectionsCategorySelector(collectionId)
   );
 
   if (collectionCategory) {

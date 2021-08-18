@@ -3,13 +3,15 @@ import { Spinner } from "../Spinner/Spinner";
 
 import "./withSpinner.scss";
 
-interface Props {
-  isLoading: boolean;
-}
+interface Props {}
 
 export const withSpinner =
-  <P extends object>(Component: React.ComponentType<P>): React.FC<P & Props> =>
-  ({ isLoading, ...props }: Props) => {
+  <P extends object>(
+    Component: React.ComponentType<P>,
+    { isLoading }
+  ): React.FC<P & Props> =>
+  ({ ...anyProps }: Props) => {
+    console.log("WS");
     if (isLoading)
       return (
         <div className="spinner-backdrop">
@@ -18,5 +20,5 @@ export const withSpinner =
           </div>
         </div>
       );
-    else return <Component {...(props as P)} />;
+    else return <Component {...(anyProps as P)} />;
   };

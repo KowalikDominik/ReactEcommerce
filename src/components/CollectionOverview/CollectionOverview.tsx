@@ -9,6 +9,7 @@ interface Props {}
 
 export const CollectionOverview: React.FC<Props> = () => {
   const collections = useSelector(collectionsSelector);
+  console.log("CO");
   return (
     <div className="collection-overview">
       {collections.map(({ id, ...other }) => {

@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { addItemType, ICardItem, ICardState } from "../../interfaces";
-import { itemsSelector } from "./card.selectors";
 import { addItemToCard, decreaseItemQuantity } from "./card.utils";
 
 const initialState: ICardState = {
