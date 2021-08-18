@@ -12,7 +12,6 @@ interface Props {}
 const CardIcon: React.FC<Props> = () => {
   const itemCount = useSelector(countSelector);
   const dispatch = useDispatch();
-  console.log("Item render");
   return (
     <div className="card-icon" onClick={() => dispatch(cardToggleHidden())}>
       <ShoppingBasket className="shopping-icon" />

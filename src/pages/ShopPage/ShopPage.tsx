@@ -25,7 +25,7 @@ export const ShopPage: React.FC<Props> = ({ match }) => {
       />
       <Route
         path={`${match.path}/:collectionId`}
-        render={(props) => <CollectionPageContainer {...props} />}
+        component={CollectionPageContainer}
       />
     </div>
   );

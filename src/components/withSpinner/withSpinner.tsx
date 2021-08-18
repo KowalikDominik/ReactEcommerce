@@ -11,7 +11,6 @@ export const withSpinner =
     { isLoading }
   ): React.FC<P & Props> =>
   ({ ...anyProps }: Props) => {
-    console.log("WS");
     if (isLoading)
       return (
         <div className="spinner-backdrop">
