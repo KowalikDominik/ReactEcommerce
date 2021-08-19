@@ -9,7 +9,6 @@ interface Props extends RouteComponentProps {}
 
 const SearchPageContainer: React.FC<Props> = (props) => {
   const status = useSelector(collectionStatus);
-  console.log(status);
   const Container = withSpinner(SearchPage, {
     isLoading: status !== "succeeded",
   });

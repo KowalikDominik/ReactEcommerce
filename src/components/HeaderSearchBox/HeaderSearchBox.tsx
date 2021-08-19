@@ -15,6 +15,11 @@ const HeaderSearchBox: React.FC<Props> = ({ history }) => {
   let resultsList;
   const results = useSelector(filteringCollectionsSelector(searchValue));
 
+  const onSendHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (searchValue) showResult(searchValue);
+  };
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     if (e.target.value.length > 0) setsearchDropdown(true);
@@ -69,6 +74,7 @@ const HeaderSearchBox: React.FC<Props> = ({ history }) => {
         placeholder="Search..."
         change={onChangeHandler}
         click={onClickSearchBoxHandler}
+        send={onSendHandler}
       />
       {searchDropdown ? (
         <div className="search-results">{resultsList}</div>

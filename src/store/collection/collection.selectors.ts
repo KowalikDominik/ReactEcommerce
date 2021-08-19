@@ -41,5 +41,5 @@ export const filteringCollectionsSelector = (searchName: string) =>
             item.name.toLowerCase().includes(searchName.toLowerCase())
           )
         : products
-      : null;
+      : [];
   });

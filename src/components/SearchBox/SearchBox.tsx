@@ -7,6 +7,7 @@ interface Props {
   value: string;
   change: (event: React.ChangeEvent<HTMLInputElement>) => void;
   click: () => void;
+  send: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export const SearchBox: React.FC<Props> = ({
@@ -14,15 +15,18 @@ export const SearchBox: React.FC<Props> = ({
   change,
   value,
   click,
+  send,
 }) => {
   return (
-    <input
-      className="search-box"
-      type="search"
-      placeholder={placeholder}
-      onChange={change}
-      value={value}
-      onClick={click}
-    />
+    <form onSubmit={send}>
+      <input
+        className="search-box"
+        type="search"
+        placeholder={placeholder}
+        onChange={change}
+        value={value}
+        onClick={click}
+      />
+    </form>
   );
 };

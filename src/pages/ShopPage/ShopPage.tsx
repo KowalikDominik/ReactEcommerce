@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { Route, RouteComponentProps } from "react-router";
 
-import { fetchCollections } from "../../store/collection/collection.slice";
 import { CollectionOverviewContainer } from "../../components/CollectionOverview/CollectionOverviewContainer";
 import { CollectionPageContainer } from "../CollectionPage/CollectionPageContainer";
 

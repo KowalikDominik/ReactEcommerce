@@ -15,16 +15,15 @@ export const SearchPage: React.FC<Props> = ({ location: { search } }) => {
     name = value;
   });
   const items = useSelector(filteringCollectionsSelector(name));
-
   return (
     <div className="search-page">
       <h1 className="title">Search Result:</h1>
       <div className="items">
-        {items
+        {items?.length > 0
           ? items.map((collection) => (
               <CollectionItem key={collection.id} {...collection} />
             ))
-          : null}
+          : "No results."}
       </div>
     </div>
   );
