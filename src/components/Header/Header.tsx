@@ -8,7 +8,7 @@ import CardIcon from "../CardIcon/CardIcon";
 import CardDropdown from "../CardDropdown/CardDropdown";
 
 import { SignInHeaderLink } from "../SignInHeaderLink/SignInHeaderLink";
-import { HeaderSearchBox } from "../HeaderSearchBox/HeaderSearchBox";
+import HeaderSearchBox from "../HeaderSearchBox/HeaderSearchBox";
 
 interface Props {}
 
