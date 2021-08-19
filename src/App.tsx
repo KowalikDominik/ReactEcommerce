@@ -16,6 +16,7 @@ import { RootState } from "./store/store";
 import { setCurrentUser } from "./store/user/user.slice";
 import { IUser } from "./interfaces";
 import { NotFound404 } from "./components/NotFound404/NotFound404";
+import { fetchCollections } from "./store/collection/collection.slice";
 
 function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
@@ -33,6 +34,8 @@ function App() {
         dispatch(setCurrentUser(user));
       }
     });
+    dispatch(fetchCollections());
+
     return () => {};
   }, [dispatch]);
 

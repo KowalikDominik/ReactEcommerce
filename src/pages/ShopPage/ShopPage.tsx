@@ -9,13 +9,6 @@ import { CollectionPageContainer } from "../CollectionPage/CollectionPageContain
 interface Props extends RouteComponentProps<{ match: string }> {}
 
 export const ShopPage: React.FC<Props> = ({ match }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCollections());
-    return () => {};
-  }, [dispatch]);
-
   return (
     <div>
       <Route

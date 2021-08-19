@@ -8,6 +8,7 @@ import CardIcon from "../CardIcon/CardIcon";
 import CardDropdown from "../CardDropdown/CardDropdown";
 
 import { SignInHeaderLink } from "../SignInHeaderLink/SignInHeaderLink";
+import { HeaderSearchBox } from "../HeaderSearchBox/HeaderSearchBox";
 
 interface Props {}
 
@@ -18,6 +19,9 @@ const Header: React.FC<Props> = () => {
         <Link to="/">
           <Logo className="logo" />
         </Link>
+      </div>
+      <div className="options">
+        <HeaderSearchBox />
       </div>
       <div className="options">
         <Link className="option" to="/shop">
