@@ -7,7 +7,7 @@ import { CollectionOverview } from "./CollectionOverview";
 export const CollectionOverviewContainer: React.FC = () => {
   const status = useSelector(collectionStatus);
   const Container = withSpinner(CollectionOverview, {
-    isLoading: status === "loading",
+    isLoading: status !== "succeeded",
   });
 
   return <Container />;

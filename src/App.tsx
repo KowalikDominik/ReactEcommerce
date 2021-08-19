@@ -17,6 +17,7 @@ import { setCurrentUser } from "./store/user/user.slice";
 import { IUser } from "./interfaces";
 import { NotFound404 } from "./components/NotFound404/NotFound404";
 import { fetchCollections } from "./store/collection/collection.slice";
+import SearchPageContainer from "./pages/SearchPage/SearchPageContainer";
 
 function App() {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
@@ -46,7 +47,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
-
+        <Route path="/search" component={SearchPageContainer} />
         <Route
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInUpPage />)}
