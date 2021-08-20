@@ -47,7 +47,7 @@ const CardDropdown: React.FC<Props> = ({ history }) => {
   return (
     <div className="card-dropdown" ref={dropdownRef}>
       <div className="card-items">
-        {items.length ? (
+        {items ? (
           items.map((item) => <CardItem {...item} key={item.id} />)
         ) : (
           <span className="empty-message">Your Card is empty.</span>
