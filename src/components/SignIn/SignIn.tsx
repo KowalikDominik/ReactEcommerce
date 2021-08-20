@@ -16,7 +16,7 @@ export const SignIn: React.FC<Props> = () => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (error) {
-      alert(error.message);
+      alert(error);
     }
   };
 

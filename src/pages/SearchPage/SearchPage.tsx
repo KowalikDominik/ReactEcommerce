@@ -19,11 +19,11 @@ export const SearchPage: React.FC<Props> = ({ location: { search } }) => {
     <div className="search-page">
       <h1 className="title">Search Result:</h1>
       <div className="items">
-        {items?.length > 0
+        {items
           ? items.map((collection) => (
               <CollectionItem key={collection.id} {...collection} />
             ))
-          : "No results."}
+          : "null"}
       </div>
     </div>
   );

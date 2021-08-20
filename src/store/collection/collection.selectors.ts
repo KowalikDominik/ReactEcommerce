@@ -35,11 +35,12 @@ const arrayOfAllProductsSelector = createSelector(
 );
 export const filteringCollectionsSelector = (searchName: string) =>
   createSelector(arrayOfAllProductsSelector, (products) => {
-    return products
-      ? searchName
-        ? products.filter((item: ICollectionItem) =>
-            item.name.toLowerCase().includes(searchName.toLowerCase())
-          )
-        : products
-      : [];
+    if (products)
+      if (searchName) {
+        const filteredProducts = products.filter((item: ICollectionItem) =>
+          item.name.toLowerCase().includes(searchName.toLowerCase())
+        );
+        if (filteredProducts.length !== 0) return filteredProducts;
+      } else return products;
+    return null;
   });
