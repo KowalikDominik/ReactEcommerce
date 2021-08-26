@@ -8,7 +8,7 @@ interface Props extends RouteComponentProps<{ match: string }> {}
 
 export const ShopPage: React.FC<Props> = ({ match }) => {
   return (
-    <div>
+    <>
       <Route
         exact
         path={`${match.path}`}
@@ -18,6 +18,6 @@ export const ShopPage: React.FC<Props> = ({ match }) => {
         path={`${match.path}/:collectionId`}
         component={CollectionPageContainer}
       />
-    </div>
+    </>
   );
 };

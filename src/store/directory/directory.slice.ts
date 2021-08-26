@@ -25,14 +25,14 @@ const initialState: IDirectoryState = {
       linkUrl: "shop/jackets",
     },
     {
-      title: "WOMAN",
+      title: "WOMEN",
       imageUrl: `${process.env.PUBLIC_URL}/directory/womens.jpg`,
       id: 4,
       size: "large",
       linkUrl: "shop/womens",
     },
     {
-      title: "MAN",
+      title: "MEN",
       imageUrl: `${process.env.PUBLIC_URL}/directory/mens.jpg`,
       id: 5,
       size: "large",

@@ -5,6 +5,11 @@
   min-height: 80vh;
   align-items: center;
   margin: 50px auto;
+  @media screen and (max-width: 800px) {
+    margin: 0 auto;
+    padding: 0 5px;
+    width: 100%;
+  }
 
   .checkout-header {
     width: 100%;
@@ -17,7 +22,10 @@
       width: 23%;
       text-transform: capitalize;
       text-align: center;
-
+      @media screen and (max-width: 800px) {
+        width: unset;
+        // font-size: 11px;
+      }
       &:first-child {
         text-align: left;
       }

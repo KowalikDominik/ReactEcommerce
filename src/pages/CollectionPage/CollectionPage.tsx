@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import CollectionItem from "../../components/CollectionItem/CollectionItem";
+import { CollectionMap } from "../../components/CollectionMap/CollectionMap";
 import { collectionsCategorySelector } from "../../store/collection/collection.selectors";
 
 import "./CollectionPage.scss";
@@ -17,16 +17,7 @@ export const CollectionPage: React.FC<Props> = ({ collectionId }) => {
 
   if (collectionCategory) {
     const { title, items } = collectionCategory;
-    return (
-      <div className="collection-page">
-        <h1 className="title">{title}</h1>
-        <div className="items">
-          {items.map((collection) => (
-            <CollectionItem key={collection.id} {...collection} />
-          ))}
-        </div>
-      </div>
-    );
+    return <CollectionMap title={title} items={items} />;
   } else {
     return <Redirect to="/404" />;
   }

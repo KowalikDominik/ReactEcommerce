@@ -9,4 +9,14 @@
     display: flex;
     justify-content: space-between;
   }
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    .buttons {
+      justify-content: center;
+      .custom-button {
+        min-width: 50%;
+        line-height: unset;
+      }
+    }
+  }
 }

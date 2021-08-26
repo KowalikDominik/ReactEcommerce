@@ -21,7 +21,7 @@ const MenuItem: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className={`${size} menu-item`}
+      className={`menu-item ${size}`}
       onClick={() => history.push(`/${linkUrl}`)}
     >
       <div

@@ -12,6 +12,10 @@ $base-width: 23%;
   .image-container {
     width: $base-width;
     padding-right: 15px;
+    @media screen and (max-width: 800px) {
+      padding: 0;
+      width: 17%;
+    }
     img {
       height: 100%;
       width: 100%;
@@ -22,9 +26,17 @@ $base-width: 23%;
   .price {
     width: $base-width;
   }
+  .name {
+    @media screen and (max-width: 800px) {
+      font-size: 16px;
+    }
+  }
   .quantity {
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 800px) {
+      font-size: 24px;
+    }
     .arrow {
       cursor: pointer;
       padding: 0 10px;

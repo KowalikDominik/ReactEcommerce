@@ -49,10 +49,11 @@ function App() {
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route path="/search" component={SearchPageContainer} />
         <Route
+          exact
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInUpPage />)}
         />
-        <Route exact path="/404" component={NotFound404} />
+        <Route component={NotFound404} />
       </Switch>
     </div>
   );

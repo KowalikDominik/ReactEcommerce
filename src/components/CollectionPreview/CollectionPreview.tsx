@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ICollectionItem } from "../../interfaces";
-import CollectionItem from "../CollectionItem/CollectionItem";
+import CollectionSlider from "../CollectionSlider/CollectionSlider";
 import "./CollectionPreview.scss";
 
 interface Props {
@@ -10,16 +10,6 @@ interface Props {
 }
 
 export const CollectionPreview: React.FC<Props> = ({ title, items }) => {
-  return (
-    <div className="collection-preview">
-      <h1 className="title">{title}</h1>
-      <div className="preview">
-        {items
-          .filter((item, idx) => idx < 4)
-          .map((item) => (
-            <CollectionItem key={item.id} {...item} />
-          ))}
-      </div>
-    </div>
-  );
+  const data = items.filter((item, idx) => idx < 9);
+  return <CollectionSlider title={title} items={data} />;
 };

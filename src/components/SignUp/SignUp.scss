@@ -5,4 +5,11 @@
   .title {
     margin: 10px 0;
   }
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    .custom-button {
+      margin: 0 50%;
+      transform: translateX(-50%);
+    }
+  }
 }

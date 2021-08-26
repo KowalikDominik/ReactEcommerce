@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ReactComponent as Magnifying } from "../../assets/magnifying.svg";
 
 import "./SearchInput.scss";

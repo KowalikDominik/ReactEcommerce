@@ -1,5 +1,7 @@
+$item-height: 240px;
+
 .menu-item {
-  height: 240px;
+  height: $item-height;
   min-width: 30%;
   display: flex;
   flex: 1 1 auto;
@@ -49,6 +51,12 @@
     .subtitle {
       font-weight: lighter;
       font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    height: 200px;
+    &.large {
+      height: 200px;
     }
   }
 }

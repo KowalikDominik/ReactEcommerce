@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router";
-import CollectionItem from "../../components/CollectionItem/CollectionItem";
+import { CollectionMap } from "../../components/CollectionMap/CollectionMap";
 import { filteringCollectionsSelector } from "../../store/collection/collection.selectors";
 
 import "./SearchPage.scss";
@@ -15,16 +15,15 @@ export const SearchPage: React.FC<Props> = ({ location: { search } }) => {
     name = value;
   });
   const items = useSelector(filteringCollectionsSelector(name));
-  return (
-    <div className="search-page">
-      <h1 className="title">Search Result:</h1>
-      <div className="items">
-        {items
-          ? items.map((collection) => (
-              <CollectionItem key={collection.id} {...collection} />
-            ))
-          : "null"}
-      </div>
-    </div>
-  );
+  const title = "Search result";
+  if (!items)
+    return (
+      <CollectionMap
+        error={{
+          msg: `Sorry, your search "${name}" did not match any products. Please try again.`,
+        }}
+        title={title}
+      />
+    );
+  return <CollectionMap title={title} items={items} />;
 };

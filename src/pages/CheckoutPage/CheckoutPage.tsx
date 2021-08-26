@@ -28,7 +28,7 @@ export const CheckoutPage: React.FC<Props> = () => {
         ))}
         <div className="checkout-total">
           Total:
-          <span className="total">{totalPrice} $</span>) : null
+          <span className="total">{totalPrice} $</span>
         </div>
       </div>
     );

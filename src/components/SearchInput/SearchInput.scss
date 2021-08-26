@@ -1,9 +1,11 @@
 .search-input {
   height: 30px;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   .input {
+    width: 100%;
     border: 0;
     border: 2px solid #4482c3;
     height: 100%;
@@ -11,7 +13,7 @@
   }
   .submit {
     outline: none;
-    width: 100%;
+    width: 40px;
     background-color: #4482c3;
     height: 30px;
     border: 0;
