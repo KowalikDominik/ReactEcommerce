@@ -1,6 +1,6 @@
 # Ecommerce App
 
-### with React, Typescript, Redux ToolKit, Redux Persist, Redux Thunk, React- Firebase, Sass
+### with React, Typescript, Redux ToolKit, Redux Persist, Redux Thunk, react-router,Firebase, Sass, Authentication
 
 ## Live Preview
 
