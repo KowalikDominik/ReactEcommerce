@@ -63,11 +63,14 @@
           .collection-item {
             width: 24vw;
             padding: 0 5px;
+
             &.extra {
               display: flex;
               flex-direction: column;
               align-items: center;
               button {
+                opacity: 1;
+                display: flex;
                 top: 50%;
                 transform: translateY(-50%);
                 .arrow {
