@@ -15,8 +15,12 @@ const SearchBox: React.FC<Props> = ({ history }) => {
   let resultsList;
   const results = useSelector(filteringCollectionsSelector(searchValue));
 
-  const onSendHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSendHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    const target = e.target as typeof e.target & {
+      search: { value: string } & HTMLElement;
+    };
+    target.search.blur();
     if (searchValue) showResult(searchValue);
   };
 

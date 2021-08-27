@@ -8,7 +8,7 @@ interface Props {
   value: string;
   change: (event: React.ChangeEvent<HTMLInputElement>) => void;
   click: () => void;
-  send: (event: React.FormEvent<HTMLFormElement>) => void;
+  send: (e: React.SyntheticEvent) => void;
 }
 
 export const SearchInput: React.FC<Props> = ({
@@ -21,6 +21,7 @@ export const SearchInput: React.FC<Props> = ({
   return (
     <form onSubmit={send} className="search-input">
       <input
+        name="search"
         className="input"
         type="search"
         placeholder={placeholder}
